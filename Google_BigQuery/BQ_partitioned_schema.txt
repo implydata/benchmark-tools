@@ -1,0 +1,79 @@
+SELECT
+  CAST( PARSE_DATE("%Y-%m-%d",
+      CONCAT(d_year, '-', (CASE
+            WHEN d_month = 'January' THEN '01'
+            WHEN d_month = 'February' THEN '02'
+            WHEN d_month = 'March' THEN '03'
+            WHEN d_month = 'April' THEN '04'
+            WHEN d_month = 'May' THEN '05'
+            WHEN d_month = 'June' THEN '06'
+            WHEN d_month = 'July' THEN '07'
+            WHEN d_month = 'August' THEN '08'
+            WHEN d_month = 'September' THEN '09'
+            WHEN d_month = 'October' THEN '10'
+            WHEN d_month = 'November' THEN '11'
+            WHEN d_month = 'December' THEN '12'
+          ELSE
+          NULL
+        END
+          ), '-', d_daynuminmonth)) AS Timestamp),
+  lo_orderkey,
+  lo_linenumber,
+  lo_custkey,
+  lo_partkey,
+  lo_suppkey,
+  lo_orderdate,
+  lo_orderpriority,
+  lo_shippriority,
+  lo_quantity,
+  lo_extendedprice,
+  lo_ordtotalprice,
+  lo_discount,
+  lo_revenue,
+  lo_supplycost,
+  lo_tax,
+  lo_commitdate,
+  lo_shipmode,
+  c_custkey,
+  c_name,
+  c_address,
+  c_city,
+  c_nation,
+  c_region,
+  c_phone,
+  c_mktsegment,
+  s_suppkey,
+  s_name,
+  s_address,
+  s_city,
+  s_nation,
+  s_region,
+  s_phone,
+  p_partkey,
+  p_name,
+  p_mfgr,
+  p_category,
+  p_brand1,
+  p_color,
+  p_type,
+  p_size,
+  p_container,
+  d_datekey,
+  d_date,
+  d_dayofweek,
+  d_month,
+  d_year,
+  d_yearmonthnum,
+  d_yearmonth,
+  d_daynuminweek,
+  d_daynuminmonth,
+  d_daynuminyear,
+  d_monthnuminyear,
+  d_weeknuminyear,
+  d_sellingseason,
+  d_lastdayinweekfl,
+  d_lastdayinmonthfl,
+  d_holidayfl,
+  d_weekdayfl
+FROM
+  `community-benchmark.SSBData.ssb_data_small`;

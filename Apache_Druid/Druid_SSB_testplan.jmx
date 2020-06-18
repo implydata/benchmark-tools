@@ -1,0 +1,1241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="jmUseCache" elementType="Argument">
+            <stringProp name="Argument.name">jmUseCache</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmPopulateCache" elementType="Argument">
+            <stringProp name="Argument.name">jmPopulateCache</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmUseApproximateCountDistinct" elementType="Argument">
+            <stringProp name="Argument.name">jmUseApproximateCountDistinct</stringProp>
+            <stringProp name="Argument.value">true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmUseApproximateTopN" elementType="Argument">
+            <stringProp name="Argument.name">jmUseApproximateTopN</stringProp>
+            <stringProp name="Argument.value">true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmPopulateResultLevelCache " elementType="Argument">
+            <stringProp name="Argument.name">jmPopulateResultLevelCache </stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmUseResultLevelCache" elementType="Argument">
+            <stringProp name="Argument.name">jmUseResultLevelCache</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmVectorSize" elementType="Argument">
+            <stringProp name="Argument.name">jmVectorSize</stringProp>
+            <stringProp name="Argument.value">256</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmVectorize" elementType="Argument">
+            <stringProp name="Argument.name">jmVectorize</stringProp>
+            <stringProp name="Argument.value">true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmForceLimitPushDown" elementType="Argument">
+            <stringProp name="Argument.name">jmForceLimitPushDown</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmDataSource" elementType="Argument">
+            <stringProp name="Argument.name">jmDataSource</stringProp>
+            <stringProp name="Argument.value">ssb_data</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmRunTitle" elementType="Argument">
+            <stringProp name="Argument.name">jmRunTitle</stringProp>
+            <stringProp name="Argument.value">druid_600M_best</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmQueryInterval" elementType="Argument">
+            <stringProp name="Argument.name">jmQueryInterval</stringProp>
+            <stringProp name="Argument.value">2020-01-01T00:00:00.0000/2020-01-08T00:00:00.0000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">jmLoopCount</stringProp>
+            <stringProp name="Argument.value">10</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmFeatureFlags" elementType="Argument">
+            <stringProp name="Argument.name">jmFeatureFlags</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmAdditionalContext" elementType="Argument">
+            <stringProp name="Argument.name">jmAdditionalContext</stringProp>
+            <stringProp name="Argument.value">&quot;enableParallelMerge&quot;: true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+        <collectionProp name="AuthManager.auth_list">
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url"></stringProp>
+            <stringProp name="Authorization.username">admin</stringProp>
+            <stringProp name="Authorization.password">XXXXXXXXXXXXXXXXXXXXXXXXX</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+        </collectionProp>
+        <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+      </AuthManager>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">localhost</stringProp>
+        <stringProp name="HTTPSampler.port">9088</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path">/druid/v2/sql/</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SSB-SQL" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${jmLoopCount}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="TestPlan.comments">as clost to original SSB queries as possible</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="6790202">jmQueryGroup</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="376254391">
+              <stringProp name="1379043793">original</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">true</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_extendedprice*lo_discount) as revenue from ${jmDataSource} where d_year = 1993 and lo_discount between 1 and 3 and lo_quantity &lt; 25&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_extendedprice*lo_discount) as lo_revenue from ${jmDataSource} where d_yearmonthnum = 199401 and lo_discount between 4 and 6 and lo_quantity between 26 and 35&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;:&quot;select sum(lo_extendedprice*lo_discount) as lo_revenue from ${jmDataSource} where d_weeknuminyear = 6 and d_year = 1994 and lo_discount between 5 and 7 and lo_quantity between 26 and 35&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;:&quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_category = &apos;MFGR#12&apos; and s_region = &apos;AMERICA&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_brand1 between &apos;MFGR#2221&apos; and &apos;MFGR#2228&apos; and s_region = &apos;ASIA&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_brand1= &apos;MFGR#2239&apos; and s_region = &apos;EUROPE&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_nation, s_nation, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where c_region = &apos;ASIA&apos; and s_region = &apos;ASIA&apos; and d_year &gt;= 1992 and d_year &lt;= 1997 group by c_nation, s_nation, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where c_nation = &apos;UNITED STATES&apos; and s_nation = &apos;UNITED STATES&apos; and d_year &gt;= 1992 and d_year &lt;= 1997 group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and d_year &gt;= 1992 and d_year &lt;= 1997 group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.4" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and d_yearmonthnum = &apos;199712&apos; group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.4-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, c_nation, sum(lo_revenue - lo_supplycost) as profit from ${jmDataSource}  where c_region = &apos;AMERICA&apos; and s_region = &apos;AMERICA&apos; and (p_mfgr = &apos;MFGR#1&apos; or p_mfgr = &apos;MFGR#2&apos;) group by d_year, c_nation order by d_year, c_nation&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, s_nation, p_category, sum(lo_revenue - lo_supplycost) as profit from ${jmDataSource}  where c_region = &apos;AMERICA&apos; and s_region = &apos;AMERICA&apos; and (d_year = 1997 or d_year = 1998) and (p_mfgr = &apos;MFGR#1&apos; or p_mfgr = &apos;MFGR#2&apos;) group by d_year, s_nation, p_category order by d_year, s_nation, p_category&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, s_city, p_brand1, sum(lo_revenue - lo_supplycost) as profit from ${jmDataSource} where s_nation = &apos;UNITED STATES&apos; and (d_year = 1997 or d_year = 1998) and p_category = &apos;MFGR#14&apos; group by d_year, s_city, p_brand1 order by d_year, s_city, p_brand1&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BestOpt" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${jmLoopCount}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="6790202">jmQueryGroup</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="36902308">
+              <stringProp name="1495487427">bestoptimized</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">true</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.1-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &#xd;
+&quot;select sum(lo_extendedprice*lo_discount) as revenue from ${jmDataSource} where floor(\&quot;__time\&quot; to YEAR) = TIMESTAMP &apos;1993-01-01&apos; and lo_discount between 1 and 3 and lo_quantity &lt; 25&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.2-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_extendedprice*lo_discount) as lo_revenue from  ${jmDataSource} where TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;1994-01-01T00:00:00.000Z&apos;) and lo_discount between 4 and 6 and lo_quantity between 26 and 35&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.3-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;:&quot;select sum(lo_extendedprice*lo_discount) as lo_revenue from ${jmDataSource} where TIME_FLOOR(__time,&apos;P1W&apos;)=TIME_PARSE(&apos;1994-02-07T00:00:00.000Z&apos;) and lo_discount between 5 and 7 and lo_quantity between 26 and 35&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q1.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.1-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;:&quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_category = &apos;MFGR#12&apos; and s_region = &apos;AMERICA&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.2-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_brand1 between &apos;MFGR#2221&apos; and &apos;MFGR#2228&apos; and s_region = &apos;ASIA&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,&#xd;
+	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.3-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select sum(lo_revenue), d_year, p_brand1 from ${jmDataSource}  where p_brand1= &apos;MFGR#2239&apos; and s_region = &apos;EUROPE&apos; group by d_year, p_brand1 order by d_year, p_brand1&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q2.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.1-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_nation, s_nation, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where c_region = &apos;ASIA&apos; and s_region = &apos;ASIA&apos; and TIME_EXTRACT(\&quot;__time\&quot;,&apos;YEAR&apos;) &gt;= 1992 and TIME_EXTRACT(\&quot;__time\&quot;,&apos;YEAR&apos;) &lt;= 1997 group by c_nation, s_nation, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.2-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where c_nation = &apos;UNITED STATES&apos; and s_nation = &apos;UNITED STATES&apos; and TIME_EXTRACT(\&quot;__time\&quot;,&apos;YEAR&apos;) &gt;= 1992 and TIME_EXTRACT(\&quot;__time\&quot;,&apos;YEAR&apos;)  &lt;= 1997 group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.3-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource}  where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and FLOOR(\&quot;__time\&quot; to YEAR) &gt;= TIME_PARSE(&apos;1992-01-01T00:00:00.000Z&apos;) and FLOOR(\&quot;__time\&quot; to YEAR) &lt;= TIME_PARSE(&apos;1997-01-01T00:00:00.000Z&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.4-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ssb_data where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;Dec1997&apos;,&apos;MMMyyyy&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.4-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.1-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, c_nation, sum(lo_revenue - lo_supplycost) as profit from ${jmDataSource}  where c_region = &apos;AMERICA&apos; and s_region = &apos;AMERICA&apos; and (p_mfgr = &apos;MFGR#1&apos; or p_mfgr = &apos;MFGR#2&apos;) group by d_year, c_nation order by d_year, c_nation&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.1-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.2-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, s_nation, p_category, sum(lo_revenue) - sum(lo_supplycost) as profit from ${jmDataSource}  where c_region = &apos;AMERICA&apos; and s_region = &apos;AMERICA&apos; and (FLOOR(\&quot;__time\&quot; to YEAR) = TIME_PARSE(&apos;1997-01-01T00:00:00.000Z&apos;) or FLOOR(\&quot;__time\&quot; to YEAR) = TIME_PARSE(&apos;1998-01-01T00:00:00.000Z&apos;)) and (p_mfgr = &apos;MFGR#1&apos; or p_mfgr = &apos;MFGR#2&apos;) group by d_year, s_nation, p_category order by d_year, s_nation, p_category&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.2-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.3-Opt" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select d_year, s_nation, p_category, sum(lo_revenue) - sum(lo_supplycost) as profit from ${jmDataSource} where c_region = &apos;AMERICA&apos; and s_region = &apos;AMERICA&apos; and (FLOOR(\&quot;__time\&quot; to YEAR) = TIME_PARSE(&apos;1997-01-01T00:00:00.000Z&apos;) or FLOOR(\&quot;__time\&quot; to YEAR) = TIME_PARSE(&apos;1998-01-01T00:00:00.000Z&apos;)) and (p_mfgr = &apos;MFGR#1&apos; or p_mfgr = &apos;MFGR#2&apos;) group by d_year, s_nation, p_category order by d_year, s_nation, p_category&quot;,	&quot;context&quot;: {&#xd;
+	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q4.3-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
+		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+       	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+   		&quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+       	&quot;useCache&quot;: ${jmUseCache},&#xd;
+       	&quot;vectorize&quot;: ${jmVectorize},&#xd;
+       	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+       	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+       	${jmAdditionalContext}&#xd;
+	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <boolProp name="useGroupName">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

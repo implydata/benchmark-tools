@@ -1,0 +1,47 @@
+"tuningConfig": {
+  "type": "index_parallel",
+  "maxRowsPerSegment": 5000000,
+  "maxRowsInMemory": 1000000,
+  "maxBytesInMemory": 0,
+  "maxTotalRows": null,
+  "numShards": null,
+  "splitHintSpec": null,
+  "partitionsSpec": {
+    "type": "dynamic",
+    "maxRowsPerSegment": 5000000,
+    "maxTotalRows": null
+  },
+  "indexSpec": {
+    "bitmap": {
+      "type": "concise"
+    },
+    "dimensionCompression": "lz4",
+    "metricCompression": "lz4",
+    "longEncoding": "longs"
+  },
+  "indexSpecForIntermediatePersists": {
+    "bitmap": {
+      "type": "concise"
+    },
+    "dimensionCompression": "lz4",
+    "metricCompression": "lz4",
+    "longEncoding": "longs"
+  },
+  "maxPendingPersists": 0,
+  "forceGuaranteedRollup": false,
+  "reportParseExceptions": false,
+  "pushTimeout": 0,
+  "segmentWriteOutMediumFactory": null,
+  "maxNumConcurrentSubTasks": 4,
+  "maxRetry": 3,
+  "taskStatusCheckPeriodMs": 1000,
+  "chatHandlerTimeout": "PT10S",
+  "chatHandlerNumRetries": 5,
+  "maxNumSegmentsToMerge": 100,
+  "totalNumMergeTasks": 10,
+  "logParseExceptions": false,
+  "maxParseExceptions": 2147483647,
+  "maxSavedParseExceptions": 0,
+  "buildV9Directly": true,
+  "partitionDimensions": []
+}
