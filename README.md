@@ -1,14 +1,14 @@
 # benchmark-tools
 
-Evaluating enterprise data warehouse performance using the Star Schema Benchmark 
+##### Evaluating enterprise data warehouse performance using the Star Schema Benchmark 
 
-The Star Schema Benchmark (SSB) is designed to evaluate database system performance of star schema data warehouse queries. The schema for SSB is based on the TPC-H benchmark, but in a highly modified form. The SSB has been used to measure query performance of commercial and open-source database products on Linux and Windows since January 2007. Testing using the performance results of 13 standard SQL queries allows for comparison between products and configurations. 
+The [Star Schema Benchmark](https://www.cs.umb.edu/~poneil/StarSchemaB.PDF) or SSB is designed to evaluate database system performance of star schema data warehouse queries. The schema for SSB is based on the TPC-H benchmark, but in a highly modified form. The SSB has been used to measure query performance of commercial and open-source database products on Linux and Windows since January 2007. Testing using the performance results of 13 standard SQL queries allows for comparison between products and configurations. 
 
-This testing evaluates the suitability of Apache Druid and Google BigQuery for EDW workloads in terms of performance and price-performance using SSB. EDW workloads are shifting to the cloud and, as a result, a new class of technologies is emerging that can provide fast query response times at scale. These solutions load, store and analyze large amounts of data at high speed to prove timely business insights. New columnar architectures provide microsecond response time at high levels of concurrency where traditional EDW struggle. When deployed elastically as a service, they enable enterprises to innovate BI and OLAP apps at a more rapid pace.  
+This testing evaluates the suitability of [Apache Druid](https://druid.apache.org) and [Google BigQuery](https://cloud.google.com/bigquery) for EDW workloads in terms of performance and price-performance using SSB. EDW workloads are shifting to the cloud and, as a result, a new class of technologies is emerging that can provide fast query response times at scale. These solutions load, store and analyze large amounts of data at high speed to prove timely business insights. New columnar architectures provide microsecond response time at high levels of concurrency where traditional EDW struggle. When deployed elastically as a service, they enable enterprises to innovate BI and OLAP apps at a more rapid pace.  
 
-This readme is an excerpt from a larger report https://go.imply.io/rs/910-OTN-223/images/Apache%20Druid%20and%20Google%20BigQuery%20Performance%20Evaluation.pdf.
+This readme is an excerpt from a [larger report](https://go.imply.io/rs/910-OTN-223/images/Apache-Druid-and-Google-BigQuery-performance-evaluation.pdf).
 
-Testing Methodology
+## Testing Methodology
 
 We evaluated the performance of Apache Druid and Google BigQuery to determine the suitability of each as an enterprise data warehouse (EDW) solution. Testing involved five major steps for each solution:
 1.	Provision each solution 
@@ -30,27 +30,28 @@ We optimized schema and queries following documented best practices for each pla
 10.	Any tuning capability habitually used to improve performance in a database product should be adopted for that product.
 11.	Published SSB reports can anonymize the products tested, removing product-specific tuning details and query plans
 
-Data Generation and Preparation
+## Data Generation and Preparation
 
 We generated 600 million rows (approximately 100GB) of test data using SSB’s dbgen downloaded from  https://github.com/lemire/StarSchemaBenchmark and executed locally. The test files generated included the fact table lineorder.tbl, and the dimension tables customer.tbl, part.tbl, supplier.tbl, and date.tbl. We executed dbgen with a Scale Factor of 1 (SF=1) to generate a lineorder table with 6,000,000 rows.
 
-We denormalized the SSB data to create a single flat file using Amazon Athena (Hive). We partitioned the denormalized data by month. 
-Data Ingestion
+We denormalized the SSB data to create a single flat file using Amazon Athena (Hive). We partitioned the denormalized data by month. [Athena DDL](Athena_DDL)
+
+## Data Ingestion
 We partitioned on month in the source data and saved it in ORC for Druid and BigQuery. 
 
-In Druid’s case, we installed the druid-ORC extension and then ingested partitioned source data in ORC format. Data was partitioned on month and ingested by parsing lo_orderdate. Druid ingestion and tuning specs are available in this repository..   
+In Druid’s case, we installed the druid-ORC extension and then ingested partitioned source data in ORC format. Data was partitioned on month and ingested by parsing lo_orderdate. [Druid ingestion and tuning specs](Apache_Druid)   
 
 In BigQuery we performed the following steps:
 1.	Create a table
 2.	Run a data transfer job on our ORC test data from S3 and insert 
 3.	Create another table with an additional column f0_ so data can be partitioned by date
-BigQuery DDL can be found in this repository.
+[BigQuery DDL](Google_BigQuery)
 
-Query Optimization
-We leveraged platform-specific syntax for date expressions in SSB queries. This enabled us to limit queries across partitions and to filter on time using the platform’s strengths to reduce the number of columns and rows that needed to be scanned. We also applied general SQL query optimization tactics such as simplifying expressions to aid in query planning.
-Performance Testing
-We used JMeter to assess single-user query performance. No multi-user testing was performed. A JMeter script can be found in this repository.
+## Query Optimization
+We leveraged platform-specific syntax for date expressions in [SSB queries](Star_Schema_Benchmark). This enabled us to limit queries across partitions and to filter on time using the platform’s strengths to reduce the number of columns and rows that needed to be scanned. We also applied general SQL query optimization tactics such as simplifying expressions to aid in query planning.
 
+## Performance Testing
+We used JMeter to assess single-user query performance. No multi-user testing was performed. [Apache Druid JMeter script](https://github.com/implydata/benchmark-tools/blob/master/Apache_Druid/Druid_SSB_testplan.jmx) 
 We ran JMeter against each platform’s HTTP API under the following conditions:
 1.  Query cache off
 2.  Each SSB query was run 10 times (10 samples per query)
