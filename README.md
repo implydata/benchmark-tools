@@ -52,10 +52,10 @@ Performance Testing
 We used JMeter to assess single-user query performance. No multi-user testing was performed. A JMeter script can be found in this repository.
 
 We ran JMeter against each platform’s HTTP API under the following conditions:
-●	Query cache off
-●	Each SSB query was run 10 times (10 samples per query)
-●	Each query flight consisted of all 13 SSB queries run in succession
-●	For each test, Average Response Time, Lowest Response Time, Highest Response Time, and Average Response Time Standard Deviation per query were calculated 
-●	Each test was repeated five times 
-●	The lowest and highest test results were discarded, a standard practice to remove outliers  from performance testing results, leaving results from 3 test runs 
-●	The remaining 3 results for each query were averaged to provide results for Average Response Time, Lowest Response Time, Highest Response Time, and Average Response Time Standard Deviation per query were calculated
+1.  Query cache off
+2.  Each SSB query was run 10 times (10 samples per query)
+3.  Each query flight consisted of all 13 SSB queries run in succession
+4.  For each test, Average Response Time, Lowest Response Time, Highest Response Time, and Average Response Time Standard Deviation per query were calculated 
+5.  Each test was repeated five times 
+6.  The lowest and highest test results were discarded, a standard practice to remove outliers  from performance testing results, leaving results from 3 test runs 
+7.  The remaining 3 results for each query were averaged to provide results for Average Response Time, Lowest Response Time, Highest Response Time, and Average Response Time Standard Deviation per query were calculated
