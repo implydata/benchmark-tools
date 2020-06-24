@@ -7,11 +7,11 @@ The [Star Schema Benchmark](https://www.cs.umb.edu/~poneil/StarSchemaB.PDF) or S
 This testing evaluates the suitability of [Apache Druid](https://druid.apache.org) and [Google BigQuery](https://cloud.google.com/bigquery) for EDW workloads in terms of performance and price-performance using SSB. EDW workloads are shifting to the cloud and, as a result, a new class of technologies is emerging that can provide fast query response times at scale. These solutions load, store and analyze large amounts of data at high speed to prove timely business insights. New columnar architectures provide microsecond response time at high levels of concurrency where traditional EDW struggle. When deployed elastically as a service, they enable enterprises to innovate BI and OLAP apps at a more rapid pace.  
 
 This readme is an excerpt from a [larger report](https://go.imply.io/rs/910-OTN-223/images/Apache-Druid-and-Google-BigQuery-performance-evaluation.pdf) and is organized in the following sections:
-1. [Testing Methodology](##Testing Methodology)
-2. [Data Generation and Preparation](#Data Generation and Preparation)
-3. [Data Ingestion](#Data Ingestion)
-4. [Query Optimization](#Query Optimization)
-5. [Performance Testing](#Performance Testing)
+1. [Testing Methodology](https://github.com/implydata/benchmark-tools#testing-methodology)
+2. [Data Generation and Preparation](https://github.com/implydata/benchmark-tools#data-generation-and-preparation)
+3. [Data Ingestion](https://github.com/implydata/benchmark-tools#data-ingestion)
+4. [Query Optimization](https://github.com/implydata/benchmark-tools#query-optimization)
+5. [Performance Testing](https://github.com/implydata/benchmark-tools#performance-testing)
 
 ## Testing Methodology
 
