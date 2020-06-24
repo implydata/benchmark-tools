@@ -6,7 +6,7 @@ The Star Schema Benchmark (SSB) is designed to evaluate database system performa
 
 This testing evaluates the suitability of Apache Druid and Google BigQuery for EDW workloads in terms of performance and price-performance using SSB. EDW workloads are shifting to the cloud and, as a result, a new class of technologies is emerging that can provide fast query response times at scale. These solutions load, store and analyze large amounts of data at high speed to prove timely business insights. New columnar architectures provide microsecond response time at high levels of concurrency where traditional EDW struggle. When deployed elastically as a service, they enable enterprises to innovate BI and OLAP apps at a more rapid pace.  
 
-This readme is an excerpt from a larger report https://imply.io/white-papers/apache-druid-google-bigquery-benchmark.
+This readme is an excerpt from a larger report https://go.imply.io/rs/910-OTN-223/images/Apache%20Druid%20and%20Google%20BigQuery%20Performance%20Evaluation.pdf.
 
 Testing Methodology
 
