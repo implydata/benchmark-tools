@@ -12,6 +12,7 @@ This readme is an excerpt from a [larger report](https://go.imply.io/rs/910-OTN-
 3. [Data Ingestion](https://github.com/implydata/benchmark-tools#data-ingestion)
 4. [Query Optimization](https://github.com/implydata/benchmark-tools#query-optimization)
 5. [Performance Testing](https://github.com/implydata/benchmark-tools#performance-testing)
+6. [Results](https://github.com/implydata/benchmark-tools#results)
 
 ## Testing Methodology
 
@@ -70,7 +71,7 @@ We ran JMeter against each platform’s HTTP API under the following conditions:
 Below are results for Apache Druid of our testing using the 600 million row SSB data set. Average response time is shown in milliseconds per query and also for the entire flight of 13 queries. The table below will be updated as results become available for new releases of Druid. 
 
 |              | **Apache Druid 0.20 API** | **Apache Druid 0.20 JDBC** | **Apache Druid 0.18 API** |
-|--------------|-----------------------|------------------------|-----------------------|
+|--------------|-----------------------:|------------------------:|-----------------------:|
 |**Query 1.1**    |                   126 |                    299 |                  1245 |
 |**Query 1.2**    |                    95 |                    155 |                   155 |
 |**Query 1.3**    |                    93 |                    153 |                    92 |
