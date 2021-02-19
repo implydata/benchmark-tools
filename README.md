@@ -70,19 +70,19 @@ We ran JMeter against each platform’s HTTP API under the following conditions:
 ## Results
 Below are results for Apache Druid of our testing using the 600 million row SSB data set. Average response time is shown in milliseconds per query and also for the entire flight of 13 queries. The table below will be updated as results become available for new releases of Druid. 
 
-|              | **Apache Druid 0.20 API** | **Apache Druid 0.20 JDBC** | **Apache Druid 0.18 API** |
-|--------------|-----------------------:|------------------------:|-----------------------:|
-|**Query 1.1**    |                   126 |                    299 |                  1245 |
-|**Query 1.2**    |                    95 |                    155 |                   155 |
-|**Query 1.3**    |                    93 |                    153 |                    92 |
-|**Query 2.1**    |                   352 |                    216 |                   662 |
-| **Query 2.2**    |                   327 |                    212 |                   591 |
-|**Query 2.3**    |                   242 |                    175 |                   319 |
-| **Query 3.1**    |                   329 |                    243 |                  1020 |
-| **Query 3.2**    |                   265 |                    275 |                   514 |
-| **Query 3.3**    |                   224 |                    240 |                   417 |
-| **Query 3.4**    |                   171 |                    189 |                   100 |
-| **Query 4.1**    |                   394 |                    212 |                   883 |
-| **Query 4.2**    |                   519 |                    169 |                   389 |
-| **Query 4.3**    |                   462 |                    199 |                   384 |
-| **Query Flight** |                  3599 |                   2737 |                  6770 |
+|              | **Apache Druid 0.20 API** | **Apache Druid 0.18 API** |
+|--------------|-----------------------:|-----------------------:|
+|**Query 1.1**    |                   126 |                  1245 |
+|**Query 1.2**    |                    95 |                   155 |
+|**Query 1.3**    |                    93 |                    92 |
+|**Query 2.1**    |                   352 |                    662 |
+| **Query 2.2**    |                   327 |                   591 |
+|**Query 2.3**    |                   242 |                   319 |
+| **Query 3.1**    |                   329 |                   1020 |
+| **Query 3.2**    |                   265 |                    514 |
+| **Query 3.3**    |                   224 |                   417 |
+| **Query 3.4**    |                   171 |                   100 |
+| **Query 4.1**    |                   394 |                  883 |
+| **Query 4.2**    |                   519 |                  389 |
+| **Query 4.3**    |                   462 |                   384 |
+| **Query Flight** |                  3599 |                6770 |
