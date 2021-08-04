@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -55,7 +55,7 @@
           </elementProp>
           <elementProp name="jmDataSource" elementType="Argument">
             <stringProp name="Argument.name">jmDataSource</stringProp>
-            <stringProp name="Argument.value">ssb_data</stringProp>
+            <stringProp name="Argument.value">ssb_data_0</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="jmRunTitle" elementType="Argument">
@@ -80,7 +80,12 @@
           </elementProp>
           <elementProp name="jmAdditionalContext" elementType="Argument">
             <stringProp name="Argument.name">jmAdditionalContext</stringProp>
-            <stringProp name="Argument.value">&quot;enableParallelMerge&quot;: true</stringProp>
+            <stringProp name="Argument.value">&quot;enableParallelMerge&quot;: true, &quot;brokerService&quot; : &quot;druid/broker&quot;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmHostURI" elementType="Argument">
+            <stringProp name="Argument.name">jmHostURI</stringProp>
+            <stringProp name="Argument.value">internal-imply-d5e-elbinter-i1cppdawoolm-617983926.us-east-1.elb.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -93,7 +98,7 @@
           <elementProp name="" elementType="Authorization">
             <stringProp name="Authorization.url"></stringProp>
             <stringProp name="Authorization.username">admin</stringProp>
-            <stringProp name="Authorization.password">XXXXXXXXXXXXXXXXXXXXXXXXX</stringProp>
+            <stringProp name="Authorization.password">GOee6Mw0exvZvQ4Xyw4myQ==</stringProp>
             <stringProp name="Authorization.domain"></stringProp>
             <stringProp name="Authorization.realm"></stringProp>
           </elementProp>
@@ -104,7 +109,7 @@
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">Content-type</stringProp>
+            <stringProp name="Header.name">Content-Type</stringProp>
             <stringProp name="Header.value">application/json</stringProp>
           </elementProp>
         </collectionProp>
@@ -114,7 +119,7 @@
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
-        <stringProp name="HTTPSampler.domain">localhost</stringProp>
+        <stringProp name="HTTPSampler.domain">${jmHostURI}</stringProp>
         <stringProp name="HTTPSampler.port">9088</stringProp>
         <stringProp name="HTTPSampler.protocol">https</stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -624,7 +629,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BestOpt" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BestOpt" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -985,7 +990,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ssb_data where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;Dec1997&apos;,&apos;MMMyyyy&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource} where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;Dec1997&apos;,&apos;MMMyyyy&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
 	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.4-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
 		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
        	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
