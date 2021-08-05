@@ -85,7 +85,12 @@
           </elementProp>
           <elementProp name="jmHostURI" elementType="Argument">
             <stringProp name="Argument.name">jmHostURI</stringProp>
-            <stringProp name="Argument.value">internal-imply-d5e-elbinter-i1cppdawoolm-617983926.us-east-1.elb.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">&lt;host-to-request&gt;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jmSQLEndpoint" elementType="Argument">
+            <stringProp name="Argument.name">jmSQLEndpoint</stringProp>
+            <stringProp name="Argument.value">/druid/v2/sql/</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -123,13 +128,13 @@
         <stringProp name="HTTPSampler.port">9088</stringProp>
         <stringProp name="HTTPSampler.protocol">https</stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-        <stringProp name="HTTPSampler.path">/druid/v2/sql/</stringProp>
+        <stringProp name="HTTPSampler.path">${jmSQLEndpoint}</stringProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
         <stringProp name="HTTPSampler.connect_timeout"></stringProp>
         <stringProp name="HTTPSampler.response_timeout"></stringProp>
       </ConfigTestElement>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SSB-SQL" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SSB-SQL" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -173,7 +178,7 @@
        	&quot;vectorSize&quot;: ${jmVectorSize},&#xd;
        	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
        	${jmAdditionalContext}&#xd;
-	}}</stringProp>
+	}} </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1109,6 +1114,1634 @@
        	&quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
        	${jmAdditionalContext}&#xd;
 	}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SSB-Native" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${jmLoopCount}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${jmHostURI}</stringProp>
+          <stringProp name="HTTPSampler.port">9088</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/druid/v2/?pretty</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="6790202">jmQueryGroup</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-2008668751">
+              <stringProp name="-1052618729">native</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">true</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;timeseries&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;descending&quot;: false,&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;value&quot;: &quot;1993&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_quantity&quot;,&#xd;
+        &quot;lower&quot;: null,&#xd;
+        &quot;upper&quot;: &quot;25&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: true,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_discount&quot;,&#xd;
+        &quot;lower&quot;: &quot;1&quot;,&#xd;
+        &quot;upper&quot;: &quot;3&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_extendedprice\&quot; * \&quot;lo_discount\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;limit&quot;: 2147483647,&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;timeseries&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;descending&quot;: false,&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_yearmonthnum&quot;,&#xd;
+        &quot;value&quot;: &quot;199401&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_discount&quot;,&#xd;
+        &quot;lower&quot;: &quot;4&quot;,&#xd;
+        &quot;upper&quot;: &quot;6&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_quantity&quot;,&#xd;
+        &quot;lower&quot;: &quot;26&quot;,&#xd;
+        &quot;upper&quot;: &quot;35&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_extendedprice\&quot; * \&quot;lo_discount\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;limit&quot;: 2147483647,&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q1.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;timeseries&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;descending&quot;: false,&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_weeknuminyear&quot;,&#xd;
+        &quot;value&quot;: &quot;6&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;value&quot;: &quot;1994&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_discount&quot;,&#xd;
+        &quot;lower&quot;: &quot;5&quot;,&#xd;
+        &quot;upper&quot;: &quot;7&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;lo_quantity&quot;,&#xd;
+        &quot;lower&quot;: &quot;26&quot;,&#xd;
+        &quot;upper&quot;: &quot;35&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_extendedprice\&quot; * \&quot;lo_discount\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;limit&quot;: 2147483647,&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_category&quot;,&#xd;
+        &quot;value&quot;: &quot;MFGR#12&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;AMERICA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;p_brand1&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d1&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;ASIA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_brand1&quot;,&#xd;
+        &quot;lower&quot;: &quot;MFGR#2221&quot;,&#xd;
+        &quot;upper&quot;: &quot;MFGR#2228&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;p_brand1&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d1&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q2.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_brand1&quot;,&#xd;
+        &quot;value&quot;: &quot;MFGR#2239&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;EUROPE&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;expression&quot;,&#xd;
+      &quot;name&quot;: &quot;p0&quot;,&#xd;
+      &quot;expression&quot;: &quot;&apos;MFGR#2239&apos;&quot;,&#xd;
+      &quot;ordering&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;p0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_region&quot;,&#xd;
+        &quot;value&quot;: &quot;ASIA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;ASIA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;lower&quot;: &quot;1992&quot;,&#xd;
+        &quot;upper&quot;: &quot;1997&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;c_nation&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_nation&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;a0&quot;,&#xd;
+        &quot;direction&quot;: &quot;descending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_nation&quot;,&#xd;
+        &quot;value&quot;: &quot;UNITED STATES&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_nation&quot;,&#xd;
+        &quot;value&quot;: &quot;UNITED STATES&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;lower&quot;: &quot;1992&quot;,&#xd;
+        &quot;upper&quot;: &quot;1997&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;c_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;a0&quot;,&#xd;
+        &quot;direction&quot;: &quot;descending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_city&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;UNITED KI1&quot;,&#xd;
+          &quot;UNITED KI5&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;UNITED KI1&quot;,&#xd;
+          &quot;UNITED KI5&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;bound&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;lower&quot;: &quot;1992&quot;,&#xd;
+        &quot;upper&quot;: &quot;1997&quot;,&#xd;
+        &quot;lowerStrict&quot;: false,&#xd;
+        &quot;upperStrict&quot;: false,&#xd;
+        &quot;extractionFn&quot;: null,&#xd;
+        &quot;ordering&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;c_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;a0&quot;,&#xd;
+        &quot;direction&quot;: &quot;descending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q3.4" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_city&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;UNITED KI1&quot;,&#xd;
+          &quot;UNITED KI5&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;UNITED KI1&quot;,&#xd;
+          &quot;UNITED KI5&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_yearmonthnum&quot;,&#xd;
+        &quot;value&quot;: &quot;199712&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;c_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: &quot;lo_revenue&quot;,&#xd;
+      &quot;expression&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;a0&quot;,&#xd;
+        &quot;direction&quot;: &quot;descending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_region&quot;,&#xd;
+        &quot;value&quot;: &quot;AMERICA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;AMERICA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_mfgr&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;MFGR#1&quot;,&#xd;
+          &quot;MFGR#2&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;c_nation&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_revenue\&quot; - \&quot;lo_supplycost\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d1&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;c_region&quot;,&#xd;
+        &quot;value&quot;: &quot;AMERICA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_region&quot;,&#xd;
+        &quot;value&quot;: &quot;AMERICA&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;1997&quot;,&#xd;
+          &quot;1998&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_mfgr&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;MFGR#1&quot;,&#xd;
+          &quot;MFGR#2&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_nation&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;p_category&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_revenue\&quot; - \&quot;lo_supplycost\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d1&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Q4.3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;queryType&quot;: &quot;groupBy&quot;,&#xd;
+  &quot;dataSource&quot;: {&#xd;
+    &quot;type&quot;: &quot;table&quot;,&#xd;
+    &quot;name&quot;: &quot;${jmDataSource}&quot;&#xd;
+  },&#xd;
+  &quot;intervals&quot;: {&#xd;
+    &quot;type&quot;: &quot;intervals&quot;,&#xd;
+    &quot;intervals&quot;: [&#xd;
+      &quot;-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z&quot;&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;virtualColumns&quot;: [],&#xd;
+  &quot;filter&quot;: {&#xd;
+    &quot;type&quot;: &quot;and&quot;,&#xd;
+    &quot;fields&quot;: [&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;s_nation&quot;,&#xd;
+        &quot;value&quot;: &quot;UNITED STATES&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;in&quot;,&#xd;
+        &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+        &quot;values&quot;: [&#xd;
+          &quot;1997&quot;,&#xd;
+          &quot;1998&quot;&#xd;
+        ],&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;type&quot;: &quot;selector&quot;,&#xd;
+        &quot;dimension&quot;: &quot;p_category&quot;,&#xd;
+        &quot;value&quot;: &quot;MFGR#14&quot;,&#xd;
+        &quot;extractionFn&quot;: null&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  &quot;granularity&quot;: {&#xd;
+    &quot;type&quot;: &quot;all&quot;&#xd;
+  },&#xd;
+  &quot;dimensions&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;d_year&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d0&quot;,&#xd;
+      &quot;outputType&quot;: &quot;LONG&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;s_city&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d1&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;default&quot;,&#xd;
+      &quot;dimension&quot;: &quot;p_brand1&quot;,&#xd;
+      &quot;outputName&quot;: &quot;d2&quot;,&#xd;
+      &quot;outputType&quot;: &quot;STRING&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;aggregations&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;longSum&quot;,&#xd;
+      &quot;name&quot;: &quot;a0&quot;,&#xd;
+      &quot;fieldName&quot;: null,&#xd;
+      &quot;expression&quot;: &quot;(\&quot;lo_revenue\&quot; - \&quot;lo_supplycost\&quot;)&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;postAggregations&quot;: [],&#xd;
+  &quot;having&quot;: null,&#xd;
+  &quot;limitSpec&quot;: {&#xd;
+    &quot;type&quot;: &quot;default&quot;,&#xd;
+    &quot;columns&quot;: [&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d0&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;numeric&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d1&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;dimension&quot;: &quot;d2&quot;,&#xd;
+        &quot;direction&quot;: &quot;ascending&quot;,&#xd;
+        &quot;dimensionOrder&quot;: {&#xd;
+          &quot;type&quot;: &quot;lexicographic&quot;&#xd;
+        }&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;limit&quot;: 2147483647&#xd;
+  },&#xd;
+  &quot;context&quot;: {&#xd;
+    &quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
+    &quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
+    &quot;populateCache&quot;: ${jmPopulateCache},&#xd;
+    &quot;useCache&quot;: ${jmUseCache},&#xd;
+    &quot;vectorize&quot;: ${jmVectorize},&#xd;
+    &quot;vectorSize&quot;: ${jmVectorSize},&#xd;
+    &quot;forceLimitPushDown&quot;: ${jmForceLimitPushDown},&#xd;
+    ${jmAdditionalContext}&#xd;
+  },&#xd;
+  &quot;descending&quot;: false&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
