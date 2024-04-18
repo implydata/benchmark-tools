@@ -985,7 +985,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ssb_data where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;Dec1997&apos;,&apos;MMMyyyy&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
+                <stringProp name="Argument.value">{&quot;query&quot;: &quot;select c_city, s_city, d_year, sum(lo_revenue) as lo_revenue from ${jmDataSource} where (c_city=&apos;UNITED KI1&apos; or c_city=&apos;UNITED KI5&apos;) and (s_city=&apos;UNITED KI1&apos; or s_city=&apos;UNITED KI5&apos;) and TIME_FLOOR(\&quot;__time\&quot;,&apos;P1M&apos;) = TIME_PARSE(&apos;Dec1997&apos;,&apos;MMMyyyy&apos;) group by c_city, s_city, d_year order by d_year asc, lo_revenue desc&quot;,	&quot;context&quot;: {&#xd;
 	&quot;sqlQueryId&quot;: &quot;${jmRunTitle}-Q3.4-${jmQueryGroup}-${jmFeatureFlags}&quot;,&#xd;
 		&quot;useApproximateCountDistinct&quot;: ${jmUseApproximateCountDistinct},&#xd;
        	&quot;useApproximateTopN&quot;: ${jmUseApproximateTopN},&#xd;
